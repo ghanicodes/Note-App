@@ -14,9 +14,11 @@ const port = process.env.PORT || 3000
 //   credentials: true
 // }))
 
+const allowedOrigin = process.env.CLIENT_URL;
+
 app.use(
   cors({
-    origin: true,
+    origin: allowedOrigin,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
