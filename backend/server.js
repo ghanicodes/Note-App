@@ -1,0 +1,29 @@
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/dataBase.js";
+import userRoute from "./routes/userRoute.js";
+import cors from "cors";
+
+
+dotenv.config();
+const app = express();
+const port = process.env.PORT || 3000
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true
+}))
+app.use(express.json());
+app.use('/user', userRoute)
+
+
+
+connectDB().then(() => {
+    console.log("Database connected successfully");
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    });
+
+}).catch((err) => {
+    console.log("Database connection failed", err);
+});
