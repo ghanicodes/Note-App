@@ -17,6 +17,9 @@ app.use(express.json());
 app.use('/user', userRoute)
 
 
+app.get('/', (req, res)=>{
+    res.send("Backend Ready")
+})
 
 connectDB().then(() => {
     console.log("Database connected successfully");
