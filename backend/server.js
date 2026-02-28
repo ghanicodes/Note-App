@@ -13,17 +13,22 @@ const port = process.env.PORT || 3000
 //   origin: process.env.FRONTEND_URL,
 //   credentials: true
 // }))
+// 
+// const allowedOrigin = process.env.CLIENT_URL;
 
-const allowedOrigin = process.env.CLIENT_URL;
+// app.use(
+//   cors({
+//     origin: allowedOrigin,
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
-app.use(
-  cors({
-    origin: allowedOrigin,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+  origin: "https://note-app-frontend-tan.vercel.app",
+  credentials: true
+}));
 
 app.use(express.json());
 app.use('/user', userRoute)
