@@ -357,8 +357,7 @@ const dashboard = async (req, res) => {
     const userId = req.userId;
 
     const user = await User.findById(userId).select("-password");
-    console.log(" A gya ", user);
-    
+
     if (!user) {
       return res.status(404).json({
         success: false,

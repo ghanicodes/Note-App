@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import ForgetPassword from "./components/ForgetPassword";
 import OtpVerification from "./components/OtpVerification";
 import ChangePassword from "./components/ChangePassword";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
   return (

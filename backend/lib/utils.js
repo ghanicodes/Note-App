@@ -30,5 +30,14 @@ function validateLogin(req){
 
 }
 
+function validateNotes(req) {
 
-export { validateSignup, validateLogin };
+    const { title, description } = req.body;
+        if (!title || !description ) {
+         throw new Error("All feild are required")
+        }
+}
+
+
+
+export { validateSignup, validateLogin, validateNotes };
